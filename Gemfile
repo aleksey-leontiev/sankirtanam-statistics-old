@@ -43,6 +43,8 @@ gem 'unicorn'
 # Use Capistrano for deployment
 gem 'capistrano', '~> 2.15.5'
 
+gem 'squeel'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
