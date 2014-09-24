@@ -20,6 +20,7 @@ after "deploy:update_code", :copy_database_config
 task :copy_database_config, roles => :app do
   db_config = "#{shared_path}/database.yml"
   run "cp #{db_config} #{release_path}/config/database.yml"
+  run "cp #{shared_path}/secrets.yml #{release_path}/config/secrets.yml"
 end
 
 # В rails 3 по умолчанию включена функция assets pipelining,
