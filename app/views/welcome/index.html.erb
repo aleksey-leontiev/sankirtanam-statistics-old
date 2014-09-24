@@ -1,0 +1,31 @@
+<table>
+	<thead>
+		<th>Location</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>Quantity</th>
+		<th>Score</th>
+	</thead>
+	
+	<% for r in @overall_report %>
+		<% row = r[1] %>
+		<tr>
+			<td><%= row[:location_name] %></td>
+			<% for mi in (1..12) %>
+				<td><%= row[mi.to_s] %></td>
+			<% end %>
+			<td><%= row["q"] %></td>
+			<td><%= row["s"] %></td>
+		</tr>
+	<% end %>
+</table>
