@@ -12,6 +12,6 @@ class CreateOverallReportViews < ActiveRecord::Migration
   end
 
   def down
-  	execute "drop view overall_report_views;"
+    execute "drop view overall_report_views;"
   end
 end
