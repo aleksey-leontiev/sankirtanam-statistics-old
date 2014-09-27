@@ -1,1 +1,33 @@
-<h1>Location</h1>
+<h1>Location Report</h1>
+
+<table>
+	<thead>
+		<th>Location</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>Quantity</th>
+		<th>Score</th>
+	</thead>
+	
+	<% for r in @report %>
+		<% row = r[1] %>
+		<tr>
+			<td><%= row[:name] %></td>
+			<% for mi in (1..12) %>
+				<td><%= row[mi.to_s] %></td>
+			<% end %>
+			<td><%= row["q"] %></td>
+			<td><%= row["s"] %></td>
+		</tr>
+	<% end %>
+</table>
