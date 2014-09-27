@@ -6,8 +6,19 @@ class LocationReportController < ApplicationController
     location_report_data = LocationReportView.where{(location_url==locationp) & (year==yearp) & (month==monthp)}
 
     @report = []
+    @month  = monthp.to_i
+    @location_url = locationp
+    @year = yearp
+    @total = {huge:0,big:0,medium:0,small:0,quantity:0,score:0}
 
     for record in location_report_data
+      @total[:huge] += record.huge
+      @total[:big] += record.big
+      @total[:medium] += record.medium
+      @total[:small] += record.small
+      @total[:quantity] += record.quantity
+      @total[:score] += record.score
+      
       @report << { name: record.name,
                    huge: record.huge,
                    big:  record.big,
@@ -15,10 +26,6 @@ class LocationReportController < ApplicationController
                    small: record.small,
                    quantity: record.quantity,
                    score: record.score }
-      #r = (@report[record.name] ||= {name: record.name, "1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0, "6" => 0, "7" => 0, "8" => 0, "9" => 0, "10" => 0, "11" => 0, "12" => 0, :q=>0, :s=>0})
-      #r[record.month.to_s] = record.score
-      #r["s"] = record.scores
-      #r["q"] = record.scores
     end
   end
 end

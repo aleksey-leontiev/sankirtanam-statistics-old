@@ -1,15 +1,37 @@
-<h1>Location Report</h1>
+<ul class="pagination">
+  <% for month in 1..12 %>
+    <li class="<%=pagination_class(month)%>">
+      <a href="<%=location_report_path @location_url, @year, month%>">
+        <%=month%>
+      </a>
+    </li>
+  <% end %>
+</ul>
 
-<table>
+<table class="table table-bordered table-striped table-hover">
 	<thead>
-		<th>Name</th>
-		<th>huge</th>
-		<th>big</th>
-		<th>medium</th>
-		<th>small</th>
-		<th>quantity</th>
-		<th>score</th>
+	  <tr>
+  		<th>Имя</th>
+  		<th>Махабиги</th>
+  		<th>Биги</th>
+  		<th>Средние</th>
+  		<th>Маленькие</th>
+  		<th>Количество</th>
+  		<th>Очки</th>
+	  </tr>
 	</thead>
+	
+  <tfoot>
+    <tr class="info">
+      <td>Итого</td>
+  		<td><%=@total[:huge]%></td>
+  		<td><%=@total[:big]%></td>
+  		<td><%=@total[:medium]%></td>
+  		<td><%=@total[:small]%></td>
+  		<td><%=@total[:quantity]%></td>
+  		<td><%=@total[:small]%></td>
+    </tr>
+	</tfoot>
 	
 	<% for row in @report %>
 		<tr>
@@ -22,4 +44,6 @@
 		  <td><%= row[:score] %></td>
 		</tr>
 	<% end %>
+	
+
 </table>

@@ -48,3 +48,5 @@ gem 'squeel'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "twitter-bootstrap-rails"
+
