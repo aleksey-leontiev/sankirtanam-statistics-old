@@ -12,12 +12,12 @@ class LocationReportController < ApplicationController
     chart_data = LocationReportView.where{
       (location_url   == param_location_url) & 
       (year           == param_year)}
-      .group{:month}.sum(:score)
+      .group{:month}.sum(:scores)
 
     @report = []
     @month_names = Date::MONTHNAMES
     
-    total_month = {huge:0, big:0, medium:0, small:0, quantity:0, score:0}    
+    total_month = {huge:0, big:0, medium:0, small:0, quantity:0, scores:0}    
     total_year  = {1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0, 7=>0, 8=>0, 9=>0, 10=>0, 11=>0, 12=>0}
    
     chart_data = total_year.merge(chart_data)
@@ -29,7 +29,7 @@ class LocationReportController < ApplicationController
       total_month[:medium] += record.medium
       total_month[:small] += record.small
       total_month[:quantity] += record.quantity
-      total_month[:score] += record.score
+      total_month[:scores] += record.scores
       
       @report << { name: record.name,
                    huge: record.huge,
@@ -37,7 +37,7 @@ class LocationReportController < ApplicationController
                    medium: record.medium,
                    small: record.small,
                    quantity: record.quantity,
-                   score: record.score }
+                   scores: record.scores }
     end
     
     @location_url = param_location_url

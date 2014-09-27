@@ -11,6 +11,6 @@ class AnnualReportController < ApplicationController
       r[:total] += record.scores
     end
     
-    @chart = annual_report_data.group{:location_url}.sum(:scores)
+    @chart = annual_report_data.group{:location_url}.sum(:scores).sort_by {|_key, value| value}.reverse
   end
 end
