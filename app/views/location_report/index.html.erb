@@ -1,12 +1,15 @@
-<ul class="pagination">
-  <% for month in 1..12 %>
-    <li class="<%=pagination_class(month)%>">
-      <a href="<%=location_report_path @location_url, @year, month%>">
-        <%=month%>
-      </a>
-    </li>
-  <% end %>
-</ul>
+<center>
+  <ul class="pagination">
+    <% for month in 1..12 %>
+      <li class="<%=pagination_class(month)%>">
+        <a href="<%=location_report_path @location_url, @year, month%>">
+          <%=@month_names[month]%>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</center>
+<%= column_chart @chart_data %>
 
 <table class="table table-bordered table-striped table-hover">
 	<thead>
@@ -24,12 +27,12 @@
   <tfoot>
     <tr class="info">
       <td>Итого</td>
-  		<td><%=@total[:huge]%></td>
-  		<td><%=@total[:big]%></td>
-  		<td><%=@total[:medium]%></td>
-  		<td><%=@total[:small]%></td>
-  		<td><%=@total[:quantity]%></td>
-  		<td><%=@total[:small]%></td>
+  		<td><%=@total_month[:huge]%></td>
+  		<td><%=@total_month[:big]%></td>
+  		<td><%=@total_month[:medium]%></td>
+  		<td><%=@total_month[:small]%></td>
+  		<td><%=@total_month[:quantity]%></td>
+  		<td><%=@total_month[:score]%></td>
     </tr>
 	</tfoot>
 	
