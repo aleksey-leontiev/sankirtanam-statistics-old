@@ -2,7 +2,8 @@ class LocationReportController < ApplicationController
   def index
   	locationp = params[:location]
     yearp = params[:year]
-    location_report_data = LocationReportView.all
+    monthp = params[:month]
+    location_report_data = LocationReportView.where{(location_url==locationp) & (year==yearp) & (month==monthp)}
 
     @report = []
 

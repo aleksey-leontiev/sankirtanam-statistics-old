@@ -21,7 +21,7 @@
 	<% for r in @report %>
 		<% row = r[1] %>
 		<tr>
-			<td><a href="<%=location_report_path row[:location_url], @year%>"><%= row[:location_name] %></a></td>
+			<td><a href="<%=location_report_path row[:location_url], @year, 1%>"><%= row[:location_name] %></a></td>
 			<% for mi in (1..12) %>
 				<td><%= row[mi.to_s] %></td>
 			<% end %>
