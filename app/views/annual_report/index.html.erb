@@ -15,8 +15,7 @@
 		<th></th>
 		<th></th>
 		<th></th>
-		<th>Quantity</th>
-		<th>Score</th>
+		<th>Total</th>
 	</thead>
 	
 	<% for r in @report %>
@@ -26,8 +25,7 @@
 			<% for mi in (1..12) %>
 				<td><%= row[mi.to_s] %></td>
 			<% end %>
-			<td><%= row["q"] %></td>
-			<td><%= row["s"] %></td>
+			<td><%= row[:total] %></td>
 		</tr>
 	<% end %>
 </table>

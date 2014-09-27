@@ -2,32 +2,24 @@
 
 <table>
 	<thead>
-		<th>Location</th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th>Quantity</th>
-		<th>Score</th>
+		<th>Name</th>
+		<th>huge</th>
+		<th>big</th>
+		<th>medium</th>
+		<th>small</th>
+		<th>quantity</th>
+		<th>score</th>
 	</thead>
 	
-	<% for r in @report %>
-		<% row = r[1] %>
+	<% for row in @report %>
 		<tr>
 			<td><%= row[:name] %></td>
-			<% for mi in (1..12) %>
-				<td><%= row[mi.to_s] %></td>
-			<% end %>
-			<td><%= row["q"] %></td>
-			<td><%= row["s"] %></td>
+		  <td><%= row[:huge] %></td>
+		  <td><%= row[:big] %></td>
+		  <td><%= row[:medium] %></td>
+		  <td><%= row[:small] %></td>
+		  <td><%= row[:quantity] %></td>
+		  <td><%= row[:score] %></td>
 		</tr>
 	<% end %>
 </table>
