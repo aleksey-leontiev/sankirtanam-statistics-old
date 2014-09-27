@@ -10,5 +10,7 @@ class AnnualReportController < ApplicationController
       r[record.month.to_s] = record.scores
       r[:total] += record.scores
     end
+    
+    @chart = annual_report_data.group{:location_url}.sum(:scores)
   end
 end
